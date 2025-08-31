@@ -1,4 +1,5 @@
 # Energy Manager Integration
+### https://energymanager.com.au
 The following are instructions on how to integrate Energy Manager with an existing Home Assistant.
 
 > [!CAUTION]
@@ -127,7 +128,7 @@ modbus_port: 502  # Update with the Modbus port of your inverter. Default is '50
 modbus_slave: 1  # Update with the slave address of your inverter. Default is '1'
 ```
 ## Remove any other modbus integrations
-Energy Manager works on Home Assistant's built in modbus integration. Invert modbus isn't generally designed to be polled too frequently, and if it is, data will be missed. Ideally you should remove any other modbus related integrations so that modbus can answer in a timely manner when it is queried or written to.
+Energy Manager works on Home Assistant's built in modbus integration. Inverter modbus isn't generally designed to be polled too frequently, and if it is, data will be missed. Ideally you should remove any other modbus related integrations so that modbus can answer in a timely manner when it is queried or written to.
 
 ## Restart Home Assistant
 Go to **Developer tools -> YAML -> Check configuration** before you restart Home Assistant. If you get some warnings about modbus/baud rate, etc, that should be fine, but watch out for any critical errors that may stop Home Assistant from restarting. If any are shown, don't restart, but fix the issues first.
