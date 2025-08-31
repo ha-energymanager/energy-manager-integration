@@ -120,7 +120,9 @@ Place the following code in your /config/secrets.yaml file:
 modbus_host_ip: x.x.x.x # Update with the IP of your inverter. No default. Check the IP of your inverter!
 modbus_port: 502  # Update with the Modbus port of your inverter. Default is '502'
 modbus_slave: 1  # Update with the slave address of your inverter. Default is '1'
+```
 
 ## Restart Home Assistant
-```
+
+TO BE CONTINUED...
 
