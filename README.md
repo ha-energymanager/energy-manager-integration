@@ -1,6 +1,9 @@
 # Energy Manager Integration
 The following are instructions on how to integrate Energy Manager with an existing Home Assistant.
 
+> [!CAUTION]
+> Before starting on updating your Home Assistant to support Energy Manager, **make a backup of your system**. Download this backup to your local computer and confirm you have it before progressing. If you make a mistake with the below process, you may need to start again.  Make sure your backup contains all your entity history.
+
 > [!TIP]
 > The preferred method of installing Energy Manager is a restore to a freshly deployed Home Assistant, but there may be cases when you already have an existing Home Assistant instance and you don't want to dedicate another Home Assistant for your energy management.
 
@@ -31,7 +34,19 @@ The following are instructions on how to integrate Energy Manager with an existi
 From Settings -> Devices, perform the following:
 1) Enter details for Bureau of Meteorology (your coordinates, important)
 2) MQTT -> Cog -> Configure MQTT options -> DISABLE "Enable discovery", keep "Enable birth message" enabled.
-3) Solcat -> setup your Solcast API key
+3) Solcast -> setup your Solcast API key
+
+## Create the following helpers
+1) input_select.inverter_brand
+- name: inverter_brand
+- icon: mdi:form-select
+- Options:
+  - sungrow
+  - sigenergy
+  - alphaess
+  - fronius
+
+Note: The brand names are **case-sensitive**. Do not put upper-case first letters on them.
 
 ## Download the appropriate Energy Manager files
 Download and store the following files from the Energy Manager update server:
@@ -87,6 +102,8 @@ Place the above files in the following locations:
 - energy_manager_pv.yaml to /config/dashboards
 - mqtt_sensors.yaml to /config/integrations
 - flows.json to /addon_configs/a0d7b954_nodered
+> [!CAUTION]
+> The node-RED flows will **wipe over any existing flows** that you may have. Even if you add them to different tabs, they will wipe over your existing flows on an update. A fix for this will be released shortly in an upcoming update.
 - check_energy_manager_updates.py to /config/scripts
 - entity_manager.py to /config/scripts
 - file_merger.py to /config/scripts
@@ -95,7 +112,15 @@ Place the above files in the following locations:
 - update_checker.py to /config/scripts
 - energy-manager-settings.svg to /config/www
 
-> [!CAUTION]
-> The node-RED flows will **wipe over any existing flows** that you may have. Even if you add them to different tabs, they will wipe over your existing flows on an update. A fix for this will be released shortly in an upcoming update.
+## Configure your secrets.yaml file
+Place the following code in your /config/secrets.yaml file:
+```bash
+# Use this file to store secrets like usernames and passwords.
+# Learn more at https://www.home-assistant.io/docs/configuration/secrets/
+modbus_host_ip: x.x.x.x # Update with the IP of your inverter. No default. Check the IP of your inverter!
+modbus_port: 502  # Update with the Modbus port of your inverter. Default is '502'
+modbus_slave: 1  # Update with the slave address of your inverter. Default is '1'
 
+## Restart Home Assistant
+```
 
