@@ -93,6 +93,7 @@ Place the above files in the following locations:
 - group.yaml to /config
 - scripts.yaml to /config
 - template.yaml to /config
+- utility_meter.yaml to /config
 - alphaess_modbus.yaml.disabled to /config
 - fronius_modbus.yaml.disabled to /config
 - sigenergy_modbus.yaml.disabled to /config
