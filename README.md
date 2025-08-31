@@ -34,7 +34,7 @@ The following are instructions on how to integrate Energy Manager with an existi
 From Settings -> Devices, perform the following:
 1) Enter details for Bureau of Meteorology (your coordinates, important)
 2) MQTT -> Cog -> Configure MQTT options -> DISABLE "Enable discovery", keep "Enable birth message" enabled.
-3) Solcast -> setup your Solcast API key
+3) Solcast -> setup your Solcast API key (note, you will need to have signed up with Solcast after following the main website instructions on the process).
 
 ## Create the following helpers
 1) input_select.inverter_brand
