@@ -1,5 +1,6 @@
 # Energy Manager Integration
 ### https://energymanager.com.au
+## This is a work in progress, as at 2/09/25 it will not work.
 The following are instructions on how to integrate Energy Manager with an existing Home Assistant.
 
 > [!CAUTION]
