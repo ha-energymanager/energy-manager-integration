@@ -12,22 +12,41 @@ The following are instructions on how to integrate Energy Manager with an existi
 > These instructions are a work-in-progress and may contain mistakes or missing content. This is a retrospective installation guide, installing Energy Manager in a way that it wasn't intended, so as yet these instructions may be incomplete.
 
 ## Install the required integrations and add-ons
-1) Install Advanced SSH & Web Terminal
-2) Install Mosquitto broker
-3) Install Node-RED
-4) Install Studio Code Server
-5) Install HACS and components
-  - Install HACS (you will need to authorise it through github)
-  - Install apexcharts-card
-  - Install card-mod
-  - Install layout-card
-  - Install Node-RED Companion
-  - Install state-switch
+1) From Add-ons:
+  - Install Advanced SSH & Web Terminal, and start it
+  - Install Mosquitto broker, and start it
+  - Install Node-RED, and start it
+  - Install Studio Code Server, and start it and show in sidebar
+2) From Integrations, install HACS
+  - Browse to [HACS website](https://www.hacs.xyz/docs/use/download/download/#to-download-hacs)
+  - Follow the link in step 1 ("**my link**")
+  - Enter in your Home Assistant address, if different from that shown
+  - Open the link when shown
+  - Add the **Missing add-on repository**
+  - From the **Get HACS** page, click on **install**
+  - Start the add-on
+  - Click on **Log** up the top of the page
+  - Confirm you see the line "INFO: Installation complete"
+  - Restart Home Assistant
+  - Go to Settings -> Devices & services -> Integrations
+  - Click on **Add integration**
+  - Search for "HACS" and select it
+  - Tick all four boxes and submit
+  - Follow the link to Github, copying and pasting in your device activation key
+  - Authorise HACS
+  - Back on Home Assistant, select **Skip and finish**
+3) From HACs (left menu), install:
+  - Install apexcharts-card (download and reload)
+  - Install card-mod (download and reload)
+  - Install layout-card (download and reload)
+  - Install Node-RED Companion 
+  - Install state-switch (download and reload)
   - Install Solcast PV Forecast
   - Install Bureau of Meteorology
-  - Install Modern Circular Gauge
-  - Install Platinum Weather Card
-  - Install Tabbed Card
+  - Install Modern Circular Gauge (download and reload)
+  - Install Platinum Weather Card (download and reload)
+  - Install Tabbed Card (download and reload)
+**Restart Home Assistant**
 
 ## Configure some integrations
 > [!NOTE]
