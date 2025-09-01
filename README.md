@@ -37,7 +37,7 @@ From Settings -> Devices, perform the following:
   - Obtain your latitude & longitude from https://www.latlong.net/convert-address-to-lat-long.html
   - Devices & services -> Bureau of Meteorology -> Cog -> enter your latitude & longitude
   - Make sure you name the entity **weather.home**, and your basename **home**. This is **very important** as Energy Manager will refer to specific entity names. Check on the main website for details on how to configure BOM as it needs to be configured correctly (https://energymanager.com.au/usersc/step-four-bom.php).
-3) MQTT -> Cog -> Configure MQTT options -> DISABLE "Enable discovery", keep "Enable birth message" enabled.
+3) MQTT -> Cog -> Configure MQTT options -> **DISABLE** "Enable discovery", keep "Enable birth message" enabled.
 4) Solcast -> setup your Solcast API key and site IDs (note, you will need to have signed up with Solcast after following the main website instructions on the process). Refer to https://energymanager.com.au/usersc/step-four-pv-solcast.php for more details.
 
 ## Create the following helpers
