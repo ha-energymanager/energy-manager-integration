@@ -15,7 +15,7 @@ The following are instructions on how to integrate Energy Manager with an existi
 1) From Add-ons:
   - Install Advanced SSH & Web Terminal, and start it
   - Install Mosquitto broker, and start it
-  - Install Node-RED, and start it
+  - Install Node-RED, go into configuration settings of it and disable SSL, and then start it
   - Install Studio Code Server, and start it and show in sidebar
 2) From Integrations, install HACS
   - Browse to [HACS website](https://www.hacs.xyz/docs/use/download/download/#to-download-hacs)
@@ -209,21 +209,38 @@ Note: The name and entity name are not the same.
     - name: solcast_array_2
     - icon: mdi:shield-key-outline
 
-4) energy control
+## Launch Node-RED
+Lauch node-RED (from Settings -> Add-ons -> Open Web UI.
+We need to install some components to Node-RED (close any prompts at this stage):
 
-5) high sell price mode
+1) Click on the hamburger menu, top right
+2) Select **Manage Palette**
+3) Install the following components:
+   - node-red-contrib-traffic
+   - node-red-contrib-time-switch
+   - node-red-contrib-sun-position
+   - node-red-contrib-sunevents
+   - node-red-contrib-home-assistant-websocket
+   - node-red-contrib-counter
+   - node-red-node-random
+   - node-red-node-suncalc
 
-6) sensor.power_estimate_profile
+Note: There will be a number of warnings at the top right of the screen. This is because not all sensors are created yet.
 
-7) input_datetime.battery_install_date
 
-8) input_number.inverter_import_limit
+6) high sell price mode
 
-9) input_number.solar_array_size
+7) sensor.power_estimate_profile
 
-10) input_number.battery_charge_power_hardlimit
+8) input_datetime.battery_install_date
 
-11) **MANY MISSING - STILL TO ADD** - you can continue with the reset of the instructions, but it will not work until the helpers are added.
+9) input_number.inverter_import_limit
+
+10) input_number.solar_array_size
+
+11) input_number.battery_charge_power_hardlimit
+
+12) **MANY MISSING - STILL TO ADD** - you can continue with the reset of the instructions, but it will not work until the helpers are added.
 
 Note: The brand names are **case-sensitive**. Do not put upper-case first letters on them.
 
