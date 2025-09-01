@@ -68,30 +68,81 @@ The following are instructions on how to integrate Energy Manager with an existi
 
 ## Create the following helpers
 1) input_select.inverter_brand
-- type: "dropdown"
-- name: inverter_brand
-- icon: mdi:form-select
-- Options:
-  - sungrow
-  - sigenergy
-  - alphaess
-  - fronius
+    - type: dropdown
+    - name: Inverter Brand
+    - icon: mdi:form-select
+    - options:
+      - sungrow
+      - sigenergy
+      - alphaess
+      - fronius
 
-2) energy control
+2) input_text.amber_api_key
+    - type: text
+    - name: Amber API Key
+    - icon: mdi:shield-key-outline
+    - minimum length: 36
+    - maximum length: 36
 
-3) high sell price mode
+3) input_text.amber_site
+    - type: text
+    - name: Amber Site
+    - icon: mdi:shield-key-outline
 
-4) sensor.power_estimate_profile
+4) input_text.localvolts_key
+    - type: text
+    - name: LocalVolts Key
+    - icon: mdi:shield-key-outline
 
-5) input_datetime.battery_install_date
+5) input_text.localvolts_partner_id
+    - type: text
+    - name: LocalVolts Partner ID
+    - icon: mdi:shield-key-outline
 
-6) input_number.inverter_import_limit
+6) input_text.nmi
+    - type: text
+    - name: NMI
+    - icon: mdi:numeric
 
-7) input_number.solar_array_size
+7) input_select.electricity_provider
+    - type: dropdown
+    - name: Electricity Provider
+    - icon: mdi:lightning-bolt
+    - options:
+      - LocalVolts
+      - Amber Electric
+Note: The options are **case-sensitive**
 
-8) input_number.battery_charge_power_hardlimit
+8) input_date.battery_install_date
+     - type: data and/or time
+     - name: Battery Install Date
+     - icon: mdi:home-battery
+     - option: date
+  
+9) input_number.inverter_import_limit
+    - type: number
+    - name: Inverter Size
+    - icon: mdi:home-import-outline
+    - minimum: 0
+    - maximum: 25
+    - step size: 0.1
+    - display mode: input field
+  
+4) energy control
 
-9) **MANY MISSING - STILL TO ADD** - you can continue with the reset of the instructions, but it will not work until the helpers are added.
+5) high sell price mode
+
+6) sensor.power_estimate_profile
+
+7) input_datetime.battery_install_date
+
+8) input_number.inverter_import_limit
+
+9) input_number.solar_array_size
+
+10) input_number.battery_charge_power_hardlimit
+
+11) **MANY MISSING - STILL TO ADD** - you can continue with the reset of the instructions, but it will not work until the helpers are added.
 
 Note: The brand names are **case-sensitive**. Do not put upper-case first letters on them.
 
@@ -194,6 +245,13 @@ You should see some new menu items:
   - Tabs: Dashboard, History
 - Costs
   - Tabs: Single tab containing costs and usage details
+
+## Tidy up the Overview dashboard
+By default Home Assistant adds a lot of entities to the **Overview** dashboard, whether you like it or not. This makes it very untidy and not how Energy Manager intended.  The strong recommendation is to manage the Overview dashboard and remove all the cards that have been placed there. Perform the following to tidy the dashboard up:
+1) From the Overview dashboard, selec that **edit** pencil icon (top right)
+2) From the **Edit dashboard** modal window, select **Take control** from the 3 dot menu at top right
+3) Select either **Take control** or enable **Start with an empty dashboard** and then **Take control**, depending on what you want
+4) Go through and delete all the cards
 
 ## Add in your own personal yaml settings
 Add the contents of your personal yaml files into the Energy Manager version of the files located in /config. Pay **special attention** not to double-up anything and to make sure that you place your content **outside** of the Energy Manager section dividers. Failure to do this will mean that your settings will be **deleted** on the next update.  Keep a copy of your personalised files elsewhere so if after an update you realise that you failed to do this, you can at least get them back again.
