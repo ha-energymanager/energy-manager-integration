@@ -53,29 +53,8 @@ From Settings -> Devices, perform the following:
 Note: The brand names are **case-sensitive**. Do not put upper-case first letters on them.
 
 ## Download the appropriate Energy Manager files
-Download and store the following files from the Energy Manager update server:
-- https://updates.energymanager.com.au/files/automations.yaml
-- https://updates.energymanager.com.au/files/configuration.yaml
-- https://updates.energymanager.com.au/files/group.yaml
-- https://updates.energymanager.com.au/files/scripts.yaml
-- https://updates.energymanager.com.au/files/template.yaml
-- https://updates.energymanager.com.au/files/utility_meter.yaml
-- https://updates.energymanager.com.au/files/alphaess_modbus.yaml.disabled
-- https://updates.energymanager.com.au/files/fronius_modbus.yaml.disabled
-- https://updates.energymanager.com.au/files/sigenergy_modbus.yaml.disabled
-- https://updates.energymanager.com.au/files/sungrow_modbus.yaml.disabled
-- https://updates.energymanager.com.au/files/dashboards/energy_manager_costs.yaml
-- https://updates.energymanager.com.au/files/dashboards/energy_manager_overview.yaml
-- https://updates.energymanager.com.au/files/dashboards/energy_manager_pv.yaml
-- https://updates.energymanager.com.au/files/integrations/mqtt_sensors.yaml
-- https://updates.energymanager.com.au/files/nodered/flows.json
-- https://updates.energymanager.com.au/files/scripts/check_energy_manager_updates.py
-- https://updates.energymanager.com.au/files/scripts/entity_manager.py
-- https://updates.energymanager.com.au/files/scripts/file_merger.py
-- https://updates.energymanager.com.au/files/scripts/main_update_system.py
-- https://updates.energymanager.com.au/files/scripts/perform_energy_manager_update.py
-- https://updates.energymanager.com.au/files/scripts/update_checker.py
-- https://updates.energymanager.com.au/files/www/energy-manager-settings.svg
+**From home assistant**, download the following tar file:
+
   
 > [!IMPORTANT]
 > It is important that when you copy these files that you use an application like Notepad++ that handles Linux hidden formatting appropriately. If you copy these files using the standard Windows Notepad, you may run into issues and failure of the scripts to run.
