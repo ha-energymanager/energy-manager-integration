@@ -134,6 +134,7 @@ Note: The name and entity name are not the same.
 10) input_number.solar_array_size
     - type: number
     - name: Solar Array Size
+    - icon: mdi:solar-panel
     - minimum: 1
     - maximum: 25
     - step size: 0.1
