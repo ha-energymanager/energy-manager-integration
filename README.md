@@ -59,7 +59,7 @@ wget https://github.com/ha-energymanager/energy-manager-integration/blob/main/em
 ```
 
 ## Extract the files to a temporary location on Home Assistant
-We will extract these files in a temporary location as they risk overwriting your existing files, since some will be name the same thing.
+We will extract these files in a temporary location as they risk overwriting your existing files, since some will be named the same thing.
 ```bash
 cd /tmp
 tar -xf em-v023.tar
