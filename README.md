@@ -111,6 +111,7 @@ The following are instructions on how to integrate Energy Manager with an existi
     - options:
       - LocalVolts
       - Amber Electric
+
 Note: The options are **case-sensitive**
 
 8) input_date.battery_install_date
@@ -127,7 +128,71 @@ Note: The options are **case-sensitive**
     - maximum: 25
     - step size: 0.1
     - display mode: input field
-  
+
+Note: The name and entity name are not the same.
+
+10) input_number.solar_array_size
+    - type: number
+    - name: Solar Array Size
+    - minimum: 1
+    - maximum: 25
+    - step size: 0.1
+    - unit of measurement: kW
+   
+11) input_text.energymanager_key
+    - type: text
+    - name: EnergyManager Key
+    - icon: mdi:shield-key-outline
+
+13) input_text.em_api_version
+    - type: text
+    - name: EM API Version
+    - icon: mdi:api
+    - minimum: 0
+    - maximim: 16
+   
+14) input_text.timezone
+    - type: text
+    - name:Timezone
+    - icon: input_text.timezone
+    - minimum: 4
+    - maximum: 4
+   
+15) input_boolean.demand_period_enabled
+    - type: boolean
+    - name: Demand Period Enabled
+    - icon: mdi:clock-time-five-outline
+   
+16) input_datetime.demand_start
+    - type: data and/or time
+    - name: Demand Start
+    - icon: mdi:clock-time-five-outline
+    - option: time
+
+17) input_datetime.demand_end
+    - type: data and/or time
+    - name: Demand End
+    - icon: mdi:clock-time-nine-outline
+    - option: time
+   
+18) input_boolean.enable_exclusion_period
+    - type: boolean
+    - name: Enable Exclusion Period
+    - icon: mdi:clock-outline
+
+19) input_datetime.exclusion_start_time
+    - type: data and/or time
+    - name: Exclusion start time
+    - icon: mdi:clock-time-two-outline
+    - option: time
+
+20) input_datetime.exclusion_end_time
+    - type: data and/or time
+    - name: Exclusion end time
+    - icon: mdi:clock-time-three-outline
+    - option: time
+
+
 4) energy control
 
 5) high sell price mode
