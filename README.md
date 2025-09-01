@@ -41,26 +41,34 @@ The following are instructions on how to integrate Energy Manager with an existi
   - Install layout-card (download and reload)
   - Install Node-RED Companion 
   - Install state-switch (download and reload)
-  - Install Solcast PV Forecast
-  - Install Bureau of Meteorology
   - Install Modern Circular Gauge (download and reload)
   - Install Platinum Weather Card (download and reload)
   - Install Tabbed Card (download and reload)
+  - Install Solcast PV Forecast
+  - Install Bureau of Meteorology
+
 **Restart Home Assistant**
 
 ## Configure some integrations
 > [!NOTE]
 > Refer to the main website for configurations instructions - work through these instructions at the same time as the website instructions.
-From Settings -> Devices, perform the following:
-1) Enter details for Bureau of Meteorology (your coordinates, important)
-  - Obtain your latitude & longitude from https://www.latlong.net/convert-address-to-lat-long.html
-  - Devices & services -> Bureau of Meteorology -> Cog -> enter your latitude & longitude
-  - Make sure you name the entity **weather.home**, and your basename **home**. This is **very important** as Energy Manager will refer to specific entity names. Check on the main website for details on how to configure BOM as it needs to be configured correctly (https://energymanager.com.au/usersc/step-four-bom.php).
-3) MQTT -> Cog -> Configure MQTT options -> **DISABLE** "Enable discovery", keep "Enable birth message" enabled.
-4) Solcast -> setup your Solcast API key and site IDs (note, you will need to have signed up with Solcast after following the main website instructions on the process). Refer to https://energymanager.com.au/usersc/step-four-pv-solcast.php for more details.
+
+### Preparation work
+1) Setup your Solcast API key and site IDs (note, you will need to have signed up with Solcast after following the main website instructions on the process). Refer to     https://energymanager.com.au/usersc/step-four-pv-solcast.php for more details.
+2) Obtain your latitude & longitude from https://www.latlong.net/convert-address-to-lat-long.html
+   
+### Install and configure integrations
+1) From Integrations (Settings -> Devices & services -> Integrations -> + Add integration)
+  a) Install Solcast PV Forecast (you need your API key for this step)
+  b) Install Bureau of Meteorology (you need your coordinates for this step)
+  Make sure you name the entity **weather.home** (so enter strictly **home**), and your basename **home**. This is **very important** as Energy Manager will refer to specific entity names. Check on the main website for details on how to configure BOM as it needs to be configured correctly (https://energymanager.com.au/usersc/step-four-bom.php). You will run into all sorts of trouble if you do not name your weather entities **home**.
+  c) Install MQTT integration (when it asks "What do you want to add?", answer "MQTT" (upper-case)). When asked, select "Use the official Mosquitto Mqtt Broke add-on.", and then **Finish**. Click on the **Cog** and then select **Configure MQTT options** at the top. **DISABLE** "Enable discovery" and keep "Enable birth message" enabled. Select submit.
+
+**RESTART HOME ASSISTANT**
 
 ## Create the following helpers
 1) input_select.inverter_brand
+- type: "dropdown"
 - name: inverter_brand
 - icon: mdi:form-select
 - Options:
@@ -69,18 +77,35 @@ From Settings -> Devices, perform the following:
   - alphaess
   - fronius
 
+2) energy control
+
+3) high sell price mode
+
+4) sensor.power_estimate_profile
+
+5) input_datetime.battery_install_date
+
+6) input_number.inverter_import_limit
+
+7) input_number.solar_array_size
+
+8) input_number.battery_charge_power_hardlimit
+
+9) **MANY MISSING - STILL TO ADD** - you can continue with the reset of the instructions, but it will not work until the helpers are added.
+
 Note: The brand names are **case-sensitive**. Do not put upper-case first letters on them.
 
 ## Download the appropriate Energy Manager files
-**From home assistant**, download the following tar file as follows:
+**From home assistant**, download the following tar file as follows (through **Advanced SSH & Web Terminal** (start it if it is stopped, make sure that **Start on boot** is enabled)):
+Note: If you can't start SSH and receive a "502: Bad Gateway", go into the configuration settings of the addon and add a password, then try again. 
 ```bash
-wget https://github.com/ha-energymanager/energy-manager-integration/blob/main/em-v023.tar
+cd /tmp
+wget https://updates.energymanager.com.au/em-v023.tar
 ```
 
 ## Extract the files to a temporary location on Home Assistant
 We will extract these files in a temporary location as they risk overwriting your existing files, since some will be named the same thing.
 ```bash
-cd /tmp
 tar -xf em-v023.tar
 ```
 
@@ -97,6 +122,17 @@ tar -xf em-v023.tar
 
 > [!CAUTION]
 > The node-RED flows will **wipe over any existing flows** that you may have. Even if you add them to different tabs, they will wipe over your existing flows on an update. A fix for this will be released shortly in an upcoming update.
+
+**IMPORTANT: Copy any of your personal/original files that are duplicates with the Energy Manager files to a separate location. Once we have copied the Energy Manager versions across, we will then need to **carefully** copy any content that you need to retain across to the Energy Manager versions.
+
+Make the following directories:
+```bash
+cd /config
+mkdir dashboards
+mkdir integrations
+mkdir scripts
+cd /tmp
+```
 
 ```bash
 mv {filename} {destination}
@@ -127,6 +163,13 @@ mv configuration.yaml /config
 - update_checker.py to /config/scripts
 - energy-manager-settings.svg to /config/www
 
+## Prepare modbus.yaml
+Go into your /config directory and copy the appropriate brand "disabled" file to modbus.yaml. The following is an example for Sungrow:
+```bash
+cd /config
+cp sungrow_modbus.yaml.disabled modbus.yaml
+```
+
 ## Configure your secrets.yaml file
 Place the following code in your /config/secrets.yaml file:
 ```bash
@@ -152,8 +195,11 @@ You should see some new menu items:
 - Costs
   - Tabs: Single tab containing costs and usage details
 
- ## Continue with configuration as per the website
- If you have got this far and the new menus & dashboards have populated without any missing entities, you should continue with the configuration steps as per the website:
+## Add in your own personal yaml settings
+Add the contents of your personal yaml files into the Energy Manager version of the files located in /config. Pay **special attention** not to double-up anything and to make sure that you place your content **outside** of the Energy Manager section dividers. Failure to do this will mean that your settings will be **deleted** on the next update.  Keep a copy of your personalised files elsewhere so if after an update you realise that you failed to do this, you can at least get them back again.
+
+## Continue with configuration as per the website
+If you have got this far and the new menus & dashboards have populated without any missing entities, you should continue with the configuration steps as per the website:
  - Configure updates: https://energymanager.com.au/usersc/step-four-update.php (ensure you configure SSH as per the website instructions)
  - Energy settings: https://energymanager.com.au/usersc/step-four-pv-energy.php
  - Electricity provider: https://energymanager.com.au/usersc/step-four-pv-provider.php
