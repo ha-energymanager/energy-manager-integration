@@ -137,6 +137,7 @@ Note: The name and entity name are not the same.
     - icon: mdi:solar-panel
     - minimum: 1
     - maximum: 25
+    - display mode: input field
     - step size: 0.1
     - unit of measurement: kW
    
@@ -154,41 +155,41 @@ Note: The name and entity name are not the same.
    
 14) input_text.timezone
     - type: text
-    - name:Timezone
-    - icon: input_text.timezone
+    - name: Timezone
+    - icon: mdi:map-clock
     - minimum: 4
     - maximum: 4
    
 15) input_boolean.demand_period_enabled
-    - type: boolean
+    - type: toggle
     - name: Demand Period Enabled
     - icon: mdi:clock-time-five-outline
    
 16) input_datetime.demand_start
-    - type: data and/or time
+    - type: date and/or time
     - name: Demand Start
     - icon: mdi:clock-time-five-outline
     - option: time
 
 17) input_datetime.demand_end
-    - type: data and/or time
+    - type: date and/or time
     - name: Demand End
     - icon: mdi:clock-time-nine-outline
     - option: time
    
 18) input_boolean.enable_exclusion_period
-    - type: boolean
+    - type: toggle
     - name: Enable Exclusion Period
     - icon: mdi:clock-outline
 
 19) input_datetime.exclusion_start_time
-    - type: data and/or time
+    - type: date and/or time
     - name: Exclusion start time
     - icon: mdi:clock-time-two-outline
     - option: time
 
 20) input_datetime.exclusion_end_time
-    - type: data and/or time
+    - type: date and/or time
     - name: Exclusion end time
     - icon: mdi:clock-time-three-outline
     - option: time
@@ -201,7 +202,7 @@ Note: The name and entity name are not the same.
 22) input_text.solcast_array_1
     - type: text
     - name: solcast_array_1
-    - icon: input_text.solcast_array_1
+    - icon: mdi:shield-key-outline
    
 23) input_text.solcast_array_2
     - type: text
