@@ -53,14 +53,19 @@ From Settings -> Devices, perform the following:
 Note: The brand names are **case-sensitive**. Do not put upper-case first letters on them.
 
 ## Download the appropriate Energy Manager files
-**From home assistant**, download the following tar file:
+**From home assistant**, download the following tar file as follows:
+```bash
+wget https://github.com/ha-energymanager/energy-manager-integration/blob/main/em-v023.tar
+```
 
-  
-> [!IMPORTANT]
-> It is important that when you copy these files that you use an application like Notepad++ that handles Linux hidden formatting appropriately. If you copy these files using the standard Windows Notepad, you may run into issues and failure of the scripts to run.
+## Extract the files to a temporary location on Home Assistant
+We will extract these files in a temporary location as they risk overwriting your existing files, since some will be name the same thing.
+```bash
+cd /tmp
+tar -xf em-v023.tar
+```
 
-## Populate your /config directory with the downloaded scripts
-Place the above files in the following locations:
+## Move the files to their appropriate location
 > [!NOTE]
 >  Some of these files will already exist in your existing Home Assistant instance. It is **extrememly important** to merge the contents **carefully**. Energy Manager is designed to be able to be updated at regular intervals and should you not follow these instructions, things **will** break.
 > - Copy your customised content to the **end** of the file, **after** the line that is similar to **# === ENERGY_MANAGER_UPDATE_INPUTS_END ===**
@@ -74,6 +79,12 @@ Place the above files in the following locations:
 > [!CAUTION]
 > The node-RED flows will **wipe over any existing flows** that you may have. Even if you add them to different tabs, they will wipe over your existing flows on an update. A fix for this will be released shortly in an upcoming update.
 
+```bash
+mv {filename} {destination}
+e.g.
+mv configuration.yaml /config
+```
+**Important: This will overwrite existing files, be warned! Make sure you have a backup before progressing.**
 - configuration.yaml to /config
 - automations.yaml to /config
 - group.yaml to /config
