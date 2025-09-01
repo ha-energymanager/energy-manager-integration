@@ -192,6 +192,20 @@ Note: The name and entity name are not the same.
     - icon: mdi:clock-time-three-outline
     - option: time
 
+21) input_text.solcast_key
+    - type: text
+    - name: solcast_key
+    - icon: mdi:shield-key-outline
+   
+22) input_text.solcast_array_1
+    - type: text
+    - name: solcast_array_1
+    - icon: input_text.solcast_array_1
+   
+23) input_text.solcast_array_2
+    - type: text
+    - name: solcast_array_2
+    - icon: mdi:shield-key-outline
 
 4) energy control
 
