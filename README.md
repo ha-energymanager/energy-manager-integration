@@ -16,39 +16,39 @@ The following are instructions on how to integrate Energy Manager with an existi
 
 ## Install the required integrations and add-ons
 1) From Add-ons:
-  - Install Advanced SSH & Web Terminal, and start it
-  - Install Mosquitto broker, and start it
-  - Install Node-RED, go into configuration settings of it and disable SSL, and then start it
-  - Install Studio Code Server, and start it and show in sidebar
+    - Install Advanced SSH & Web Terminal, and start it
+    - Install Mosquitto broker, and start it
+    - Install Node-RED, go into configuration settings of it and disable SSL, and then start it
+    - Install Studio Code Server, and start it and show in sidebar
 2) From Integrations, install HACS
-  - Browse to [HACS website](https://www.hacs.xyz/docs/use/download/download/#to-download-hacs)
-  - Follow the link in step 1 ("**my link**")
-  - Enter in your Home Assistant address, if different from that shown
-  - Open the link when shown
-  - Add the **Missing add-on repository**
-  - From the **Get HACS** page, click on **install**
-  - Start the add-on
-  - Click on **Log** up the top of the page
-  - Confirm you see the line "INFO: Installation complete"
-  - Restart Home Assistant
-  - Go to Settings -> Devices & services -> Integrations
-  - Click on **Add integration**
-  - Search for "HACS" and select it
-  - Tick all four boxes and submit
-  - Follow the link to Github, copying and pasting in your device activation key
-  - Authorise HACS
-  - Back on Home Assistant, select **Skip and finish**
+    - Browse to [HACS website](https://www.hacs.xyz/docs/use/download/download/#to-download-hacs)
+    - Follow the link in step 1 ("**my link**")
+    - Enter in your Home Assistant address, if different from that shown
+    - Open the link when shown
+    - Add the **Missing add-on repository**
+    - From the **Get HACS** page, click on **install**
+    - Start the add-on
+    - Click on **Log** up the top of the page
+    - Confirm you see the line "INFO: Installation complete"
+    - Restart Home Assistant
+    - Go to Settings -> Devices & services -> Integrations
+    - Click on **Add integration**
+    - Search for "HACS" and select it
+    - Tick all four boxes and submit
+    - Follow the link to Github, copying and pasting in your device activation key
+    - Authorise HACS
+    - Back on Home Assistant, select **Skip and finish**
 3) From HACs (left menu), install:
-  - Install apexcharts-card (download and reload)
-  - Install card-mod (download and reload)
-  - Install layout-card (download and reload)
-  - Install Node-RED Companion 
-  - Install state-switch (download and reload)
-  - Install Modern Circular Gauge (download and reload)
-  - Install Platinum Weather Card (download and reload)
-  - Install Tabbed Card (download and reload)
-  - Install Solcast PV Forecast
-  - Install Bureau of Meteorology
+    - Install apexcharts-card (download and reload)
+    - Install card-mod (download and reload)
+    - Install layout-card (download and reload)
+    - Install Node-RED Companion 
+    - Install state-switch (download and reload)
+    - Install Modern Circular Gauge (download and reload)
+    - Install Platinum Weather Card (download and reload)
+    - Install Tabbed Card (download and reload)
+    - Install Solcast PV Forecast
+    - Install Bureau of Meteorology
 
 **Restart Home Assistant**
 
