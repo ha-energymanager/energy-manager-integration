@@ -379,6 +379,9 @@ modbus_host_ip: x.x.x.x # Update with the IP of your inverter. No default. Check
 modbus_port: 502  # Update with the Modbus port of your inverter. Default is '502'
 modbus_slave: 1  # Update with the slave address of your inverter. Default is '1'
 ```
+> [!TIP]
+> Make sure you replace the IP address of x.x.x.x with your inverter's IP address. Generally keep the modbus_slave as "1", unless you are using an AlphaESS inverter where you would change this to 85.
+
 ## Remove any other modbus integrations
 Energy Manager works on Home Assistant's built in modbus integration. Inverter modbus isn't generally designed to be polled too frequently, and if it is, data will be missed. Ideally you should remove any other modbus related integrations so that modbus can answer in a timely manner when it is queried or written to.
 
