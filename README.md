@@ -383,6 +383,11 @@ modbus_slave: 1  # Update with the slave address of your inverter. Default is '1
 ## Remove any other modbus integrations
 Energy Manager works on Home Assistant's built in modbus integration. Inverter modbus isn't generally designed to be polled too frequently, and if it is, data will be missed. Ideally you should remove any other modbus related integrations so that modbus can answer in a timely manner when it is queried or written to.
 
+## Node-RED sensor update
+1) Settings -> Devices & services -> Node-RED Companion -> Electricity Provider (select) -> Click on "Forecast" -> Cog -> Rename sensor to sensor.nodered_forecast -> Update
+2) Rename "Sell Price" sensor to sensor.nodered_sellprice
+3) Rename "Buy Price" sensor to sensor.nodered_buyprice
+
 ## Restart Home Assistant
 Go to **Developer tools -> YAML -> Check configuration** before you restart Home Assistant. If you get some warnings about modbus/baud rate, etc, that should be fine, but watch out for any critical errors that may stop Home Assistant from restarting. If any are shown, don't restart, but fix the issues first.
 
