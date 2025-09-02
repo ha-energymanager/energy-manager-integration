@@ -210,6 +210,64 @@ Note: The name and entity name are not the same.
     - type: text
     - name: solcast_array_2
     - icon: mdi:shield-key-outline
+    - 
+24) input_number.inverter_export_limit
+    - type: number
+    - name: Inverter Export Limit
+    - icon: mdi:home-export-outline
+    - minimum: 0
+    - maximum: 15
+    - step size: 0.1
+
+25) number.battery_2a
+    - type: template number
+    - state: {{ (states('input_number.battery_1') | float) - 1}}
+    - name: battery_2a
+
+25) number.battery_3a
+    - type: template number
+    - state: {{ (states('input_number.battery_2') | float) - 1}}
+    - name: battery_3a
+
+25) number.battery_4a
+    - type: template number
+    - state: {{ (states('input_number.battery_3') | float) - 1}}
+    - name: battery_5a
+
+25) number.battery_5a
+    - type: template number
+    - state: {{ (states('input_number.battery_4') | float) - 1}}
+    - name: battery_5a
+
+25) number.battery_6a
+    - type: template number
+    - state: {{ (states('input_number.battery_5') | float) - 1}}
+    - name: battery_6a
+
+26) input_number.bad_weather_rain_today
+    - type: number
+    - name: bad_weather_rain_today
+    - icon: mdi:weather-rainy
+
+27) input_number.bad_weather_rain_tomorrow
+    - type: number
+    - name: bad_weather_rain_tomorrow
+    - icon: mdi:weather-rainy
+
+....
+
+
+30) number.battery_high_sell_mode_usable
+    - type: template number
+    - state: {{ 100 - ((states('input_number.high_sell_battery_reserve')) | float)}}
+    - minimum: 0
+    - maximim: 100
+    - step value: 1
+
+   
+    
+   
+
 
 ## Launch Node-RED
 Lauch node-RED (from Settings -> Add-ons -> Open Web UI.
