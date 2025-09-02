@@ -68,7 +68,8 @@ The following are instructions on how to integrate Energy Manager with an existi
     - Install MQTT integration (when it asks "What do you want to add?", answer "MQTT" (upper-case)). When asked, select "Use the official Mosquitto Mqtt Broke add-on.", and then **Finish**. Click on the **Cog** and then select **Configure MQTT options** at the top. **DISABLE** "Enable discovery" and keep "Enable birth message" enabled. Select submit.
     - Install Node-RED Companion (just "Skip and Finish" at the end)
 
-**RESTART HOME ASSISTANT**
+## Restart Home Assistant
+Go to **Developer tools -> YAML -> Check configuration** before you restart Home Assistant. If you get some warnings about modbus/baud rate, etc, that should be fine, but watch out for any critical errors that may stop Home Assistant from restarting. If any are shown, don't restart, but fix the issues first.
 
 ## Create the following helpers
 1) input_select.inverter_brand
@@ -392,8 +393,6 @@ Energy Manager works on Home Assistant's built in modbus integration. Inverter m
 
 ## Restart Home Assistant
 Go to **Developer tools -> YAML -> Check configuration** before you restart Home Assistant. If you get some warnings about modbus/baud rate, etc, that should be fine, but watch out for any critical errors that may stop Home Assistant from restarting. If any are shown, don't restart, but fix the issues first.
-
-Once all of the above has been completed, restart Home Assistant. Once back, pay close attention to what errors occur in the system logs.
 
 You should see some new menu items:
 - PV
