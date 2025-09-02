@@ -270,6 +270,18 @@ Note: The name and entity name are not the same.
     - type: toggle
     - name: high_sell_price_toggle
     - icon: mdi:toggle-switch
+
+32) sensor.grid_buy_price
+    - type: template sensor
+    - name: Grid Buy Price
+    - state: {{ states('sensor.nodered_buyprice') | float(0) | round(2) }}
+    - unit of measurement: c
+   
+33) sensor.grid_sell_price
+    - type: template sensor
+    - name: Grid Sell Price
+    - state: {{ states('sensor.nodered_sellprice') | float(0) | round(2) }}
+    - unit of measurement: c
    
 ## Launch Node-RED
 Lauch node-RED (from Settings -> Add-ons -> Open Web UI.
