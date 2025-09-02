@@ -52,10 +52,7 @@ The following are instructions on how to integrate Energy Manager with an existi
 
 **Restart Home Assistant**
 
-## Configure some integrations
-> [!NOTE]
-> Refer to the main website for configurations instructions - work through these instructions at the same time as the website instructions.
-
+## Configure integrations
 ### Preparation work
 1) Setup your Solcast API key and site IDs (note, you will need to have signed up with Solcast after following the main website instructions on the process). Refer to     https://energymanager.com.au/usersc/step-four-pv-solcast.php for more details.
 2) Obtain your latitude & longitude from https://www.latlong.net/convert-address-to-lat-long.html
