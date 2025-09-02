@@ -232,7 +232,7 @@ Note: The name and entity name are not the same.
 25) number.battery_4a
     - type: template number
     - state: {{ (states('input_number.battery_3') | float) - 1}}
-    - name: battery_5a
+    - name: battery_4a
 
 25) number.battery_5a
     - type: template number
