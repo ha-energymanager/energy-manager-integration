@@ -3,13 +3,13 @@
 ## This is a work in progress and is undergoing testing. Use at your own risk.
 The following are instructions on how to integrate Energy Manager with an existing Home Assistant.
 
-> [!CAUTION]
+> [!WARNING]
 > Before starting on updating your Home Assistant to support Energy Manager, **make a backup of your system**. Download this backup to your local computer and confirm you have it before progressing. If you make a mistake with the below process, you may need to start again.  Make sure your backup contains all your entity history.
 
 > [!TIP]
 > The preferred method of installing Energy Manager is a restore to a freshly deployed Home Assistant, but there may be cases when you already have an existing Home Assistant instance and you don't want to dedicate another Home Assistant for your energy management.
 
-> [!WARNING]
+> [!CAUTION]
 > Retrospectively updating an existing Home Assistant instance is not the recommended method to install Energy Manager, however it is noted that some people do not want to maintain two separate Home Assistant instances, and this method will allow both to be combined. Please note that doing this contains a inherent risk of you losing your data if you do not follow this and take heed of the warnings.  Always back up your Home Assistant before performing any work detailed below. **Backup! Backup! Backup!**
 >
 > Energy Manager strongly discourages you from using this method. This is **not** a guaranteed and safe method to deploy Energy Manager.
