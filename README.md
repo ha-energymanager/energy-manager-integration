@@ -401,6 +401,58 @@ You should see some new menu items:
 - Costs
   - Tabs: Single tab containing costs and usage details
 
+## Disable Energy Control
+> [!IMPORTANT]
+> You must disable energy control so that Energy Manager does not take control yet, as not everything is configured.
+
+Browse to your PV Dashboard -> Ensure that **Energy Control** (down the bottom left) is NOT orange. If it is orange (aka enabled), toggle it so that it is disabled.
+
+## Update the Energy Manager entity values
+Because we have manually added a lot of entities, they will default to no value.  We need to make sure that the settings contain something meaningful.
+1) Browse to PV dashboard -> Cog tab. Enter all your unique details, as per https://energymanager.com.au/usersc/step-four-pv-energy.php
+2) Browse to PV dashboard -> Home tab. Enter appropriate values for the following (suggestions next to the item, but you can change them to what you want):
+   - Minimum SoC: 20%
+   - Maximum SoC: somewher between 80-100%
+   - Reserved SOC for Backup: 0%
+   - Forced Charge/Discharge Power: 5000
+   - Max Battery Charge Power: 5000
+   - Max Battery Discharge Power: 5000
+   - Safety Limit - Max Charge Power: 5500
+   - Safety Limit - Max Discharge Power: 5500
+   - Export Power Limit: 5000
+3) Browse to PV dashbard -> battery tab. Enter appropriate values for the following (suggestions next to the item, but you can change them to what you want):
+  - In the **Spike Preparation and Buy Pricing** image (left to right):
+    - Charge to: 40%
+      - Reserve: 20%
+      - Max charging price if morning spike detected: 25
+      - Spike defintion (on left): 45
+      - Normal day time maximum charging price: 20c
+      - Import from grid when under: 5
+      - Battery charge prep for evening: 80-100% (your choice)
+      - Spike definition (on right): 400
+      - Maximum charging price if evening spike detected: 40
+  - In the **Normal Mode** image
+    - Set the battery levels (the left-most column in the battery) as follows:
+      - 80
+      - 65
+      - 50
+      - 40
+      - 30
+      - 20
+    - Set the **Sell for** pricing, down the right hand side of the battery as follows:
+      - 0.25
+      - 0.30
+      - 0.50
+      - 1.00
+      - 2.00
+      - 3.00
+    - Set the **High Sell Mode** as follows:
+      - Sell for: 200
+      - Reserver: 40%
+  - In the **Weather Settings** image, enter the following:
+    - Rain amount for bad weather - today: 12mm
+    - Raim amount for bad weather - tomorrow: 20mm 
+
 ## Tidy up the Overview dashboard
 By default Home Assistant adds a lot of entities to the **Overview** dashboard, whether you like it or not. This makes it very untidy and not how Energy Manager intended.  The strong recommendation is to manage the Overview dashboard and remove all the cards that have been placed there. Perform the following to tidy the dashboard up:
 1) From the Overview dashboard, selec that **edit** pencil icon (top right)
