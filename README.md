@@ -311,7 +311,7 @@ tar -xf em-v023.tar
 
 ## Move the files to their appropriate location
 > [!NOTE]
->  Some of these files will already exist in your existing Home Assistant instance. It is **extrememly important** to merge the contents **carefully**. Energy Manager is designed to be able to be updated at regular intervals and should you not follow these instructions, things **will** break.
+>  Some of these files will already exist in your existing Home Assistant instance. It is **extrememly important** to merge the contents **carefully**. Energy Manager is designed to be able to be updated at regular intervals and should you not follow these instructions, things **will** break. If you don't update Energy Manager regularly, the API will reject your connection, so updates cannot be ignored.
 > - Copy your customised content to the **end** of the file, **after** the line that is similar to **# === ENERGY_MANAGER_UPDATE_INPUTS_END ===**
 > - **NEVER** add any content between the two section identifiers. If you do, it **will be deleted** on the next update without warning:
 >   \# === ENERGY_MANAGER_SCRIPTS_START v0.2.3 === and the closing \# === ENERGY_MANAGER_SCRIPTS_END ===
