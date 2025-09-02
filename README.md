@@ -64,6 +64,7 @@ The following are instructions on how to integrate Energy Manager with an existi
   b) Install Bureau of Meteorology (you need your coordinates for this step)
   Make sure you name the entity **weather.home** (so enter strictly **home**), and your basename **home**. This is **very important** as Energy Manager will refer to specific entity names. Check on the main website for details on how to configure BOM as it needs to be configured correctly (https://energymanager.com.au/usersc/step-four-bom.php). You will run into all sorts of trouble if you do not name your weather entities **home**.
   c) Install MQTT integration (when it asks "What do you want to add?", answer "MQTT" (upper-case)). When asked, select "Use the official Mosquitto Mqtt Broke add-on.", and then **Finish**. Click on the **Cog** and then select **Configure MQTT options** at the top. **DISABLE** "Enable discovery" and keep "Enable birth message" enabled. Select submit.
+  d) Install Node-RED Companion (just "Skip and Finish" at the end)
 
 **RESTART HOME ASSISTANT**
 
@@ -227,6 +228,16 @@ We need to install some components to Node-RED (close any prompts at this stage)
    - node-red-node-suncalc
 
 Note: There will be a number of warnings at the top right of the screen. This is because not all sensors are created yet.
+
+## Configure Electricity Provider and Solcast secrets
+1) From the PV menu, click on the **cog**
+2) Add in your electricity provider secrets
+3) Add in your solcast secrets (key plus at least one site code)
+4) Restart node-RED (Settings -> Add-ons)
+5) Add your Solcast API key to the Solcast integration (Settings -> Devices & services -> Solcast (if not done already)
+
+==================
+
 
 
 6) high sell price mode
