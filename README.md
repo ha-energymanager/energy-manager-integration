@@ -1,6 +1,6 @@
 # Energy Manager Integration
 ### https://energymanager.com.au
-## This is a work in progress, as at 2/09/25 it will not work.
+## This is a work in progress and is undergoing testing. Use at your own risk.
 The following are instructions on how to integrate Energy Manager with an existing Home Assistant.
 
 > [!CAUTION]
@@ -9,8 +9,10 @@ The following are instructions on how to integrate Energy Manager with an existi
 > [!TIP]
 > The preferred method of installing Energy Manager is a restore to a freshly deployed Home Assistant, but there may be cases when you already have an existing Home Assistant instance and you don't want to dedicate another Home Assistant for your energy management.
 
-> [!NOTE]
-> These instructions are a work-in-progress and may contain mistakes or missing content. This is a retrospective installation guide, installing Energy Manager in a way that it wasn't intended, so as yet these instructions may be incomplete.
+> [!WARNING]
+> Retrospectively updating an existing Home Assistant instance is not the recommended method to install Energy Manager, however it is noted that some people do not want to maintain two separate Home Assistant instances, and this method will allow both to be combined. Please note that doing this contains a inherent risk of you losing your data if you do not follow this and take heed of the warnings.  Always back up your Home Assistant before performing any work detailed below. **Backup! Backup! Backup!**
+>
+> Energy Manager strongly discourages you from using this method. This is **not** a guaranteed and safe method to deploy Energy Manager.
 
 ## Install the required integrations and add-ons
 1) From Add-ons:
