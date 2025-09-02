@@ -463,6 +463,9 @@ By default Home Assistant adds a lot of entities to the **Overview** dashboard, 
 ## Add in your own personal yaml settings
 Add the contents of your personal yaml files into the Energy Manager version of the files located in /config. Pay **special attention** not to double-up anything and to make sure that you place your content **outside** of the Energy Manager section dividers. Failure to do this will mean that your settings will be **deleted** on the next update.  Keep a copy of your personalised files elsewhere so if after an update you realise that you failed to do this, you can at least get them back again.
 
+## Set the system for your own inverter brand
+Go to the PV dashboard and from the home screen of it, select the appropriate inverter brand. If it already states your brand, you can ignore this step. However, if you change it you must **restart Home Assistant** for the changes to take effect.
+
 ## Continue with configuration as per the website
 If you have got this far and the new menus & dashboards have populated without any missing entities, you should continue with the configuration steps as per the website:
  - Configure updates: https://energymanager.com.au/usersc/step-four-update.php (ensure you configure SSH as per the website instructions)
@@ -471,6 +474,7 @@ If you have got this far and the new menus & dashboards have populated without a
  - Solcast: https://energymanager.com.au/usersc/step-four-pv-solcast.php
  - Notifications: https://energymanager.com.au/usersc/step-four-pv-notifications.php
 
+## Enable energy control
+Once you have confirmed that the appropriate inverter readings are correct (PV dashboard -> home -> "Power" section), you should test out a manual power charge and discharge through the **EMS Control** section on the dashboard. Once the charge/discharge has been configured to work, you should enable the **energy control** toggle down the bottom left of the same dashboard tab.
+
 If your Home Assistant configuration is playing up, or there are missing entities, please let us know at https://discord.gg/yeVxvmADKn or log a support ticket on the website.
-
-
