@@ -493,6 +493,17 @@ If you have got this far and the new menus & dashboards have populated without a
  - Solcast: https://energymanager.com.au/usersc/step-four-pv-solcast.php
  - Notifications: https://energymanager.com.au/usersc/step-four-pv-notifications.php
 
+## Configure the Energy Flow Dashboard (the default Home Assistant one)
+To configure the energy flow dashboard, perform the following:
+  - Energy (on left menu) -> follow the steps:
+    - Grid consumption -> select **Imported Energy Total**, do not track costs
+    - Return to grid -> select **Exported Energy Total**, do not track costs
+    - Click **Next**
+    - Solar Panles -> select **PV Energy Total**, **Forecast production**, tick **Solcast Solar***, save
+    - Home battery storage -> select **Battery Charging Total** and **Battery Discharging Total** (in that order)
+    - Click **Next** through the following options, unless you have gas and water monitoring in place
+    - Click **Show me my dashboard**
+
 ## Enable energy control
 Once you have confirmed that the appropriate inverter readings are correct (PV dashboard -> home -> "Power" section), you should test out a manual power charge and discharge through the **EMS Control** section on the dashboard. Once the charge/discharge has been configured to work, you should enable the **energy control** toggle down the bottom left of the same dashboard tab.
 
