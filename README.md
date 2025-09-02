@@ -283,6 +283,11 @@ Note: The name and entity name are not the same.
     - state: {{ states('sensor.nodered_sellprice') | float(0) | round(2) }}
     - unit of measurement: c
    
+34) sensor.bom_last_updated
+    - type: template sensor
+    - name: BOM Last Updated
+    - state: {{ as_timestamp(states.sensor.home_temp.last_updated) | timestamp_custom("%B %-d, %Y at %-I:%M %p") }}
+   
 ## Launch Node-RED
 Lauch node-RED (from Settings -> Add-ons -> Open Web UI.
 We need to install some components to Node-RED (close any prompts at this stage):
@@ -402,6 +407,7 @@ Energy Manager works on Home Assistant's built in modbus integration. Inverter m
 1) Settings -> Devices & services -> Node-RED Companion -> Electricity Provider (select) -> Click on "Forecast" -> Cog -> Rename sensor to sensor.nodered_forecast -> Update
 2) Rename "Sell Price" sensor to sensor.nodered_sellprice
 3) Rename "Buy Price" sensor to sensor.nodered_buyprice
+4) Rename "Last Updated" sensor to sensor.nodered_energyproviderupdate
 
 ## Restart Home Assistant
 Go to **Developer tools -> YAML -> Check configuration** before you restart Home Assistant. If you get some warnings about modbus/baud rate, etc, that should be fine, but watch out for any critical errors that may stop Home Assistant from restarting. If any are shown, don't restart, but fix the issues first.
