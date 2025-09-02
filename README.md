@@ -60,7 +60,10 @@ The following are instructions on how to integrate Energy Manager with an existi
    
 ### Install and configure integrations
 1) From Integrations (Settings -> Devices & services -> Integrations -> + Add integration)
-  a) Install Solcast PV Forecast (you need your API key for this step)
+  a) Install Solcast PV Forecast
+    - Add your Solcast API key
+    - Click on the top 3-dot menu of the **Services** area (to the right of "Solcast Solar" service) and select **1 service**
+    - Under **sensors** you will see 6 disabled entities. Enable each of them (click on each one, select the cog, and then select **enable**), except "Forecast Next X hours".
   b) Install Bureau of Meteorology (you need your coordinates for this step)
   Make sure you name the entity **weather.home** (so enter strictly **home**), and your basename **home**. This is **very important** as Energy Manager will refer to specific entity names. Check on the main website for details on how to configure BOM as it needs to be configured correctly (https://energymanager.com.au/usersc/step-four-bom.php). You will run into all sorts of trouble if you do not name your weather entities **home**.
   c) Install MQTT integration (when it asks "What do you want to add?", answer "MQTT" (upper-case)). When asked, select "Use the official Mosquitto Mqtt Broke add-on.", and then **Finish**. Click on the **Cog** and then select **Configure MQTT options** at the top. **DISABLE** "Enable discovery" and keep "Enable birth message" enabled. Select submit.
@@ -78,6 +81,8 @@ The following are instructions on how to integrate Energy Manager with an existi
       - sigenergy
       - alphaess
       - fronius
+
+Note: The brand names are **case-sensitive**. Do not put upper-case first letters on them.
 
 2) input_text.amber_api_key
     - type: text
@@ -254,9 +259,6 @@ Note: The name and entity name are not the same.
     - name: bad_weather_rain_tomorrow
     - icon: mdi:weather-rainy
 
-....
-
-
 30) number.battery_high_sell_mode_usable
     - type: template number
     - state: {{ 100 - ((states('input_number.high_sell_battery_reserve')) | float)}}
@@ -264,11 +266,11 @@ Note: The name and entity name are not the same.
     - maximim: 100
     - step value: 1
 
+31) input_boolean.high_sell_price_toggle
+    - type: toggle
+    - name: high_sell_price_toggle
+    - icon: mdi:toggle-switch
    
-    
-   
-
-
 ## Launch Node-RED
 Lauch node-RED (from Settings -> Add-ons -> Open Web UI.
 We need to install some components to Node-RED (close any prompts at this stage):
@@ -285,7 +287,7 @@ We need to install some components to Node-RED (close any prompts at this stage)
    - node-red-node-random
    - node-red-node-suncalc
 
-Note: There will be a number of warnings at the top right of the screen. This is because not all sensors are created yet.
+Note: There may be a number of warnings at the top right of the screen. This is because not all sensors are created yet.
 
 ## Configure Electricity Provider and Solcast secrets
 1) From the PV menu, click on the **cog**
@@ -293,26 +295,6 @@ Note: There will be a number of warnings at the top right of the screen. This is
 3) Add in your solcast secrets (key plus at least one site code)
 4) Restart node-RED (Settings -> Add-ons)
 5) Add your Solcast API key to the Solcast integration (Settings -> Devices & services -> Solcast (if not done already)
-
-==================
-
-
-
-6) high sell price mode
-
-7) sensor.power_estimate_profile
-
-8) input_datetime.battery_install_date
-
-9) input_number.inverter_import_limit
-
-10) input_number.solar_array_size
-
-11) input_number.battery_charge_power_hardlimit
-
-12) **MANY MISSING - STILL TO ADD** - you can continue with the reset of the instructions, but it will not work until the helpers are added.
-
-Note: The brand names are **case-sensitive**. Do not put upper-case first letters on them.
 
 ## Download the appropriate Energy Manager files
 **From home assistant**, download the following tar file as follows (through **Advanced SSH & Web Terminal** (start it if it is stopped, make sure that **Start on boot** is enabled)):
