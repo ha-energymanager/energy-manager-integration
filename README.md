@@ -308,13 +308,6 @@ We need to install some components to Node-RED (close any prompts at this stage)
 
 Note: There may be a number of warnings at the top right of the screen. This is because not all sensors are created yet.
 
-## Configure Electricity Provider and Solcast secrets
-1) From the PV menu, click on the **cog**
-2) Add in your electricity provider secrets
-3) Add in your solcast secrets (key plus at least one site code)
-4) Restart node-RED (Settings -> Add-ons)
-5) Add your Solcast API key to the Solcast integration (Settings -> Devices & services -> Solcast (if not done already)
-
 ## Download the appropriate Energy Manager files
 **From home assistant**, download the following tar file as follows (through **Advanced SSH & Web Terminal** (start it if it is stopped, make sure that **Start on boot** is enabled)):
 Note: If you can't start SSH and receive a "502: Bad Gateway", go into the configuration settings of the addon and add a password, then try again. 
@@ -405,12 +398,6 @@ modbus_slave: 1  # Update with the slave address of your inverter. Default is '1
 ## Remove any other modbus integrations
 Energy Manager works on Home Assistant's built in modbus integration. Inverter modbus isn't generally designed to be polled too frequently, and if it is, data will be missed. Ideally you should remove any other modbus related integrations so that modbus can answer in a timely manner when it is queried or written to.
 
-## Node-RED sensor update
-1) Settings -> Devices & services -> Node-RED Companion -> Electricity Provider (select) -> Click on "Forecast" -> Cog -> Rename sensor to sensor.nodered_forecast -> Update
-2) Rename "Sell Price" sensor to sensor.nodered_sellprice
-3) Rename "Buy Price" sensor to sensor.nodered_buyprice
-4) Rename "Last Updated" sensor to sensor.nodered_energyproviderupdate
-
 ## Restart Home Assistant
 Go to **Developer tools -> YAML -> Check configuration** before you restart Home Assistant. If you get some warnings about modbus/baud rate, etc, that should be fine, but watch out for any critical errors that may stop Home Assistant from restarting. If any are shown, don't restart, but fix the issues first.
 
@@ -421,6 +408,19 @@ You should see some new menu items:
   - Tabs: Dashboard, History
 - Costs
   - Tabs: Single tab containing costs and usage details
+
+## Configure Electricity Provider and Solcast secrets
+1) From the PV menu, click on the **cog**
+2) Add in your electricity provider secrets
+3) Add in your solcast secrets (key plus at least one site code)
+4) Restart node-RED (Settings -> Add-ons)
+5) Add your Solcast API key to the Solcast integration (Settings -> Devices & services -> Solcast (if not done already)
+
+## Node-RED sensor update
+1) Settings -> Devices & services -> Node-RED Companion -> Electricity Provider (select) -> Click on "Forecast" -> Cog -> Rename sensor to sensor.nodered_forecast -> Update
+2) Rename "Sell Price" sensor to sensor.nodered_sellprice
+3) Rename "Buy Price" sensor to sensor.nodered_buyprice
+4) Rename "Last Updated" sensor to sensor.nodered_energyproviderupdate
 
 ## Disable Energy Control
 > [!IMPORTANT]
