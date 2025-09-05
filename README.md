@@ -222,6 +222,7 @@ Note: The name and entity name are not the same.
     - icon: mdi:home-export-outline
     - minimum: 0
     - maximum: 15
+    - measurement: kW
     - step size: 0.1
 
 25) number.battery_2a
