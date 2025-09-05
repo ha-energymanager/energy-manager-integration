@@ -260,8 +260,9 @@ Note: The name and entity name are not the same.
     - name: bad_weather_rain_tomorrow
     - icon: mdi:weather-rainy
 
-30) number.battery_high_sell_mode_usable
+30) input_number.battery_high_sell_mode_usable
     - type: template number
+    - name: battery_high_sell_mode_usable
     - state: {{ 100 - ((states('input_number.high_sell_battery_reserve')) | float)}}
     - minimum: 0
     - maximim: 100
