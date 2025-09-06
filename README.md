@@ -348,10 +348,7 @@ Coming soon...
 #### Option 2:
 **Do it manually**
 ```bash
-cd /config
-mkdir dashboards
-mkdir integrations
-mkdir scripts
+mkdir /config/{dashboards,integrations,scripts}
 cd /tmp
 ```
 
