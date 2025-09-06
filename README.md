@@ -340,6 +340,13 @@ tar -xf em-v023.tar
 **IMPORTANT: Copy any of your personal/original files that are duplicates with the Energy Manager files to a separate location. Once we have copied the Energy Manager versions across, we will then need to **carefully** copy any content that you need to retain across to the Energy Manager versions.
 
 Make the following directories:
+
+#### Option 1:
+**Automatic**
+Coming soon...
+
+#### Option 2:
+**Do it manually**
 ```bash
 cd /config
 mkdir dashboards
@@ -376,31 +383,6 @@ mv configuration.yaml /config
 - perform_energy_manager_update.py to /config/scripts
 - update_checker.py to /config/scripts
 - energy-manager-settings.svg to /config/www
-
-```bash
-mv configuration.yaml /config/
-mv automations.yaml /config/
-mv group.yaml /config/
-mv scripts.yaml /config/
-mv template.yaml /config/
-mv utility_meter.yaml /config/
-mv alphaess_modbus.yaml.disabled /config/
-mv fronius_modbus.yaml.disabled /config/
-mv sigenergy_modbus.yaml.disabled /config/
-mv sungrow_modbus.yaml.disabled /config/
-mv energy_manager_costs.yaml /config/dashboards/
-mv energy_manager_overview.yaml /config/dashboards/
-mv energy_manager_pv.yaml /config/dashboards/
-mv mqtt_sensors.yaml /config/integrations/
-mv flows.json /addon_configs/a0d7b954_nodered/
-mv check_energy_manager_updates.py /config/scripts/
-mv entity_manager.py /config/scripts/
-mv file_merger.py /config/scripts/
-mv main_update_system.py /config/scripts/
-mv perform_energy_manager_update.py /config/scripts/
-mv update_checker.py /config/scripts/
-mv energy-manager-settings.svg /config/www/
-```
 
 ## Prepare modbus.yaml
 Go into your /config directory and copy the appropriate brand "disabled" file to modbus.yaml. The following is an example for Sungrow:
