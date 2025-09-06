@@ -343,7 +343,12 @@ Make the following directories:
 
 #### Option 1:
 **Automatic**
-Coming soon...
+In the tar that was just extracted, there is a script that will make directories and move your files for you - but make sure you have backed everything up first as it will wipe over your files.
+```bash
+cd /tmp
+chmod +x move-files.sh
+./move-files.sh 
+```
 
 #### Option 2:
 **Do it manually**
