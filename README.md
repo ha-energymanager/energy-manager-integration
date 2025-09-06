@@ -313,8 +313,9 @@ Note: There may be a number of warnings at the top right of the screen. This is 
 Note: If you can't start SSH and receive a "502: Bad Gateway", go into the configuration settings of the addon and add a password, then try again. 
 ```bash
 cd /tmp
-wget https://updates.energymanager.com.au/em-v023.tar
+wget https://updates.energymanager.com.au/em-v023.tar --no-check-certificate
 ```
+(for some reason Home Assistant doesn't always contain the Cloudflare CA certificate that the updates server uses)
 
 ## Extract the files to a temporary location on Home Assistant
 We will extract these files in a temporary location as they risk overwriting your existing files, since some will be named the same thing.
