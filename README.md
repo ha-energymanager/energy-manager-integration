@@ -387,13 +387,6 @@ mv configuration.yaml /config
 - update_checker.py to /config/scripts
 - energy-manager-settings.svg to /config/www
 
-## Prepare modbus.yaml
-Go into your /config directory and copy the appropriate brand "disabled" file to modbus.yaml. The following is an example for Sungrow:
-```bash
-cd /config
-cp sungrow_modbus.yaml.disabled modbus.yaml
-```
-
 ## Configure your secrets.yaml file
 Place the following code in your /config/secrets.yaml file:
 ```bash
@@ -419,6 +412,9 @@ You should see some new menu items:
   - Tabs: Dashboard, History
 - Costs
   - Tabs: Single tab containing costs and usage details
+
+## Select your inverter brand
+Go to the PV Dashboard -> Home, and under **System Configuration** select your inverter brand. Restart Home Assistant.
 
 ## Configure Electricity Provider and Solcast secrets
 1) From the PV menu, click on the **cog**
